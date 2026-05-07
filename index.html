@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>SOKAR ULTIMATE | God of War Exploit</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 30%, #0a0f1e, #010101);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', 'Poppins', system-ui, monospace;
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 700px;
+      width: 100%;
+      background: rgba(10, 10, 18, 0.75);
+      backdrop-filter: blur(18px);
+      border-radius: 48px;
+      padding: 30px 24px 40px;
+      text-align: center;
+      border: 1px solid rgba(255, 200, 50, 0.5);
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 200, 50, 0.3);
+      transition: 0.3s;
+    }
+
+    /* منطقة صورتك */
+    .god-image img {
+      width: 220px;
+      max-width: 85%;
+      border-radius: 36px;
+      border: 3px solid #ffcc44;
+      box-shadow: 0 0 25px #ffaa33;
+      margin-bottom: 16px;
+      transition: transform 0.2s;
+      background: #1a1a2a;
+    }
+    .god-image img:hover {
+      transform: scale(1.02);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      background: linear-gradient(135deg, #ffdd77, #ffaa22);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 15px #ff9900;
+      letter-spacing: 2px;
+    }
+
+    .badge-fw {
+      background: #11131f;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      border: 1px solid #ffcc44;
+      color: #ffdd99;
+      margin: 12px 0;
+    }
+
+    /* شريط التقدم */
+    .progress-section {
+      margin: 20px 0 10px;
+    }
+    .progress-bar-container {
+      background: #1e1e2a;
+      border-radius: 60px;
+      height: 12px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #ffaa33, #ffee88);
+      border-radius: 60px;
+      transition: width 0.15s linear;
+      box-shadow: 0 0 6px #ffcc55;
+    }
+    .progress-text {
+      font-size: 0.8rem;
+      color: #ffdd99;
+      margin-top: 6px;
+    }
+
+    /* الكونسول */
+    .console {
+      background: #03030ac9;
+      border-radius: 24px;
+      padding: 16px;
+      text-align: left;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: #aaffdd;
+      height: 240px;
+      overflow-y: auto;
+      border: 1px solid #ffcc4455;
+      margin: 20px 0;
+      direction: ltr;
+    }
+
+    .line {
+      margin: 4px 0;
+      word-break: break-word;
+    }
+
+    /* أزرار */
+    .btn-group {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 10px 0;
+    }
+
+    .btn {
+      background: transparent;
+      border: 2px solid #ffcc44;
+      color: #ffcc44;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-primary {
+      background: #ffcc4411;
+      box-shadow: 0 0 5px #ffaa33;
+    }
+
+    .btn-primary:hover {
+      background: #ffcc44;
+      color: #0a0a0a;
+      transform: scale(1.02);
+      box-shadow: 0 0 25px #ffcc44;
+    }
+
+    .temp-panel {
+      background: #00000066;
+      border-radius: 60px;
+      padding: 8px 15px;
+      display: inline-flex;
+      gap: 20px;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      border: 1px dotted #ffaa55;
+    }
+
+    footer {
+      font-size: 0.7rem;
+      color: #aaa;
+      margin-top: 25px;
+    }
+
+    /* لو الصورة مش موجودة، يظهر نص بديل */
+    .error-image-fallback {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <!-- صورتك - غير الرابط ده لاسم صورتك الحقيقي -->
+  <div class="god-image">
+    <img id="mainLogo" 
+         src="sokar-logo.png" 
+         alt="SOKAR God of War"
+         onerror="this.onerror=null; this.src='https://via.placeholder.com/220x220/1a1a2a/ffcc44?text=SOKAR+GOW';">
+  </div>
+
+  <h1>⚡ SOKAR ULTIMATE ⚡</h1>
+  <div class="badge-fw">🎮 FIRMWARE 9.00 | 11.00 🔥</div>
+
+  <!-- شريط التقدم -->
+  <div class="progress-section">
+    <div class="progress-bar-container">
+      <div class="progress-fill" id="exploitProgress"></div>
+    </div>
+    <div class="progress-text" id="progressStatus">⏳ جاهز للتشغيل</div>
+  </div>
+
+  <!-- الكونسول -->
+  <div class="console" id="consoleLog">
+    <div class="line">[✓] SOKAR Ultimate Loader Ready</div>
+    <div class="line">[✓] GoldHEN BinServer Emulator [PRO]</div>
+    <div class="line">[🔴] انتظر الضغط على "تشغيل التعديل"</div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" id="exploitBtn">🔥 تشغيل التعديل</button>
+    <button class="btn" id="resetBtn">🔄 إعادة ضبط</button>
+  </div>
+
+  <!-- درجة الحرارة -->
+  <div class="temp-panel">
+    <span>🌡️ CPU: <span id="tempValue">--</span> °C</span>
+    <span>🎮 SYS: <span id="sysValue">OK</span></span>
+  </div>
+
+  <footer>
+    ⚔️ Designed by <strong style="color:#ffcc66;">SOKAR</strong> | God of War Engine<br>
+    Thanks: TheFlow, Al-Azif, SiSTRo
+  </footer>
+</div>
+
+<script>
+  // عناصر DOM
+  const consoleDiv = document.getElementById('consoleLog');
+  const progressFill = document.getElementById('exploitProgress');
+  const progressStatus = document.getElementById('progressStatus');
+  const exploitBtn = document.getElementById('exploitBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const tempSpan = document.getElementById('tempValue');
+
+  let exploitActive = false;
+  let tempInterval = null;
+  let progressInterval = null;
+
+  // إضافة رسالة للكونسول
+  function addLog(msg, type = "info") {
+    const line = document.createElement('div');
+    line.className = 'line';
+    const prefix = type === "error" ? "❌" : (type === "success" ? "✅" : "🟢");
+    line.style.color = type === "error" ? "#ffaaaa" : (type === "success" ? "#aaffaa" : "#aaffdd");
+    line.innerHTML = `[${new Date().toLocaleTimeString()}] ${prefix} ${msg}`;
+    consoleDiv.appendChild(line);
+    line.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // محاكاة درجة حرارة
+  function startTemperatureSim() {
+    if (tempInterval) clearInterval(tempInterval);
+    tempInterval = setInterval(() => {
+      if (exploitActive) {
+        let fakeTemp = Math.floor(Math.random() * (70 - 52 + 1) + 52);
+        tempSpan.innerText = fakeTemp;
+      } else {
+        tempSpan.innerText = '--';
+      }
+    }, 2800);
+  }
+
+  // تشغيل التعديل (محاكاة احترافية)
+  function runExploitSequence() {
+    if (exploitActive) {
+      addLog("التعديل يعمل بالفعل!", "error");
+      return;
+    }
+
+    exploitActive = false;
+    let progress = 0;
+    progressFill.style.width = "0%";
+    progressStatus.innerText = "⚙️ جاري تجهيز الثغرة ...";
+
+    addLog("بدء تشغيل God of War Exploit", "info");
+    addLog("[ROP] تحضير سلسلة الهجوم", "info");
+
+    if (progressInterval) clearInterval(progressInterval);
+    progressInterval = setInterval(() => {
+      if (progress < 100) {
+        progress += Math.floor(Math.random() * 12) + 3;
+        if (progress > 100) progress = 100;
+        progressFill.style.width = progress + "%";
+        progressStatus.innerText = `⏳ التحميل ${progress}%`;
+      } else {
+        clearInterval(progressInterval);
+        exploitActive = true;
+        progressStatus.innerText = "✅ التعديل نشط | GoldHEN OK";
+        addLog("تم اختراق النواة بنجاح (Kernel R/W)", "success");
+        addLog("GoldHEN 2.4b | BinServer متصل", "success");
+        addLog("🔥 وضع God of War: مفعل", "success");
+        addLog("_________________________________");
+        progressFill.style.width = "100%";
+        startTemperatureSim();
+      }
+    }, 90);
+  }
+
+  // إعادة ضبط
+  function resetExploit() {
+    if (progressInterval) clearInterval(progressInterval);
+    exploitActive = false;
+    if (tempInterval) clearInterval(tempInterval);
+    progressFill.style.width = "0%";
+    progressStatus.innerText = "🔄 تم إعادة ضبط النظام";
+    tempSpan.innerText = "--";
+    addLog("تم مسح التعديل من الذاكرة", "info");
+    addLog("الجهاز في حالة الأمان | جاهز لتشغيل جديد", "success");
+    setTimeout(() => {
+      progressStatus.innerText = "⏳ جاهز للتشغيل";
+    }, 1500);
+  }
+
+  // ربط الأزرار
+  exploitBtn.addEventListener('click', runExploitSequence);
+  resetBtn.addEventListener('click', resetExploit);
+
+  // بدء الحرارة
+  startTemperatureSim();
+  addLog("أهلاً يا صقر - SOKAR Ultimate جاهز", "success");
+</script>
+</body>
+</html>
